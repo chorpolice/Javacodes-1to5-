@@ -1,0 +1,146 @@
+1).. 1	Write a Java program to sort array of strings using CompareTo function.
+
+import java.util.*;
+public class StringArraySort {
+    public static void main(String[] args) {
+        // Sample array of strings
+        String[] stringArray = {"Banana", "Apple", "Orange", "Grape", "Kiwi"};
+
+        // Sorting the array using compareTo() function
+        for (int i = 0; i < stringArray.length - 1; i++) {
+            for (int j = i + 1; j < stringArray.length; j++) {
+                if (stringArray[i].compareTo(stringArray[j]) > 0) {
+                    // Swap if the current element is greater than the next
+                    String temp = stringArray[i];
+                    stringArray[i] = stringArray[j];
+                    stringArray[j] = temp;
+                }
+            }
+        }
+
+        // Displaying the sorted array
+        System.out.println("Sorted String Array: " + Arrays.toString(stringArray));
+    }
+}
+
+
+
+2)..  Write a Java program to count the occurrence of character in a given string using suitable String handling functions
+
+import java.util.Scanner;
+
+public class CharacterOccurrenceCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the string
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Input the character to count
+        System.out.print("Enter the character to count: ");
+        char targetCharacter = scanner.next().charAt(0);
+
+        // Count occurrences using string handling functions
+        int count = countOccurrences(inputString, targetCharacter);
+
+        // Display the result
+        System.out.println("Occurrences of '" + targetCharacter + "' in the string: " + count);
+    }
+
+    private static int countOccurrences(String inputString, char targetCharacter) {
+        int count = 0;
+
+        for (char c : inputString.toCharArray()) {
+            if (c == targetCharacter) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+
+
+4th>:   Write a java program to Create an ArrayList of type String and prompt that user for three names and add these names to your ArrayList.
+b) Print a message with the number of elements in the ArrayList for the user using the size method.
+c) Prompt the user for two more names and add them to the ArrayList and once again print a message with the number of elements in the ArrayList for the user.
+d) Use a loop to print all of the names in the ArrayList for the user.
+e) Ask the user for a name to remove, remove the value the user provides, and then use an enhanced for loop to print all of the names in the ArrayList for the user.
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // Create an ArrayList of type String
+        ArrayList<String> namesList = new ArrayList<>();
+        // Prompt the user for three names and add them to the ArrayList
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 1; i <= 3; i++) {
+            System.out.print("Enter name " + i + ": ");
+            String name = scanner.nextLine();
+            namesList.add(name);
+        }
+        // Print the number of elements in the ArrayList
+        System.out.println("Number of elements in the ArrayList: " + namesList.size());
+        // Prompt the user for two more names and add them to the ArrayList
+        for (int i = 4; i <= 5; i++) {
+            System.out.print("Enter name " + i + ": ");
+            String name = scanner.nextLine();
+            namesList.add(name);
+        }
+        // Print the number of elements in the updated ArrayList
+        System.out.println("Number of elements in the updated ArrayList: " + namesList.size());
+        // Use a loop to print all of the names in the ArrayList
+        System.out.println("Names in the ArrayList:");
+        for (String name : namesList) {
+            System.out.println(name);
+        }
+        // Ask the user for a name to remove
+        System.out.print("Enter a name to remove: ");
+        String nameToRemove = scanner.nextLine();
+
+        // Remove the name provided by the user
+        namesList.remove(nameToRemove);
+        // Use an enhanced for loop to print all of the names in the updated ArrayList
+        System.out.println("Names in the updated ArrayList:");
+        for (String name : namesList) {
+        System.out.println(name);
+        }
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+
+
+5th).  Write a Java program to add elements to the start of a list and to add elements   to the end of the list. Obtain the first and last element. Remove first and last element
+
+import java.util.ArrayList;
+import java.util.List;
+public class ListManipulation {
+    public static void main(String[] args) {
+        // Creating a List
+        List<String> myList = new ArrayList<>();
+        // Adding elements to the start of the list
+        myList.add(0, "Element1");
+        myList.add(0, "Element2");
+        // Adding elements to the end of the list
+        myList.add("Element3");
+        myList.add("Element4");
+        // Displaying the list before removal
+        System.out.println("List before removal: " + myList);
+        // Obtaining and removing the first element
+        String firstElement = myList.remove(0);
+        // Obtaining and removing the last element
+        String lastElement = myList.remove(myList.size() - 1);
+        // Displaying the list after removal
+        System.out.println("List after removal: " + myList);
+        // Displaying the first and last elements that were removed
+        System.out.println("First element removed: " + firstElement);
+        System.out.println("Last element removed: " + lastElement);
+    }
+}
+
+
